@@ -3,9 +3,9 @@ from pathlib import Path
 import zipfile
 
 
-OBJECT_TO_BACKUP = '/home/server/data.db'  # The file or directory to backup
-BACKUP_DIRECTORY = '/home/server/backup'  # The location to store the backups in
-MAX_BACKUP_AMOUNT = 5  # The maximum amount of backups to have in BACKUP_DIRECTORY
+OBJECT_TO_BACKUP = '/home/ubuntu/.secretd/data'  # The file or directory to backup
+BACKUP_DIRECTORY = '/home/ubuntu/quicksyncdata'  # The location to store the backups in
+MAX_BACKUP_AMOUNT = 3  # The maximum amount of backups to have in BACKUP_DIRECTORY
 
 
 object_to_backup_path = Path(OBJECT_TO_BACKUP)
