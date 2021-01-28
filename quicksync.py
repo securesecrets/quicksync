@@ -21,11 +21,13 @@ existing_backups = [
     if x.is_file() and x.suffix == '.zip' and x.name.startswith('backup-')
 ]
 
+print("retreived existing backups")
 # Enforce max backups and delete oldest if there will be too many after the new backup
 oldest_to_newest_backup_by_name = list(sorted(existing_backups, key=lambda f: f.name))
 while len(oldest_to_newest_backup_by_name) >= MAX_BACKUP_AMOUNT:  # >= because we will have another soon
     backup_to_delete = oldest_to_newest_backup_by_name.pop(0)
     backup_to_delete.unlink()
+    print("deleted old backup if existed")
 
 # Create zip file (for both file and folder options)
 backup_file_name = f'backup-{datetime.now().strftime("%Y%m%d%H%M%S")}-{object_to_backup_path.name}.zip'
@@ -48,3 +50,4 @@ elif object_to_backup_path.is_dir():
             )
 # Close the created zip file
 zip_file.close()
+print("done creating zip file and closed")
